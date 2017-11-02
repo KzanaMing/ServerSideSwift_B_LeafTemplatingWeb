@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <title>Hello, World!</title>
+  </head>
+  <body>
+    <!-- tag: loop, collection: users, variable: "user" -->
+    #loop(users, "user") {
+      <h1>Hello, #(user.name)! <a href="mailto:#(user.email)">[email]</a></h1>
+    }
+  </body>
+
+</html>
+
