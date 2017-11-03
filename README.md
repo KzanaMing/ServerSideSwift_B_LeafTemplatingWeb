@@ -75,10 +75,10 @@ The script [LeafTemplating.sh](README_files/LeafTemplating.sh) can run the examp
 
 ``` sh
 # change permissions if needed to make script executable
-chmod +x README_files/LeafTemplating.sh.sh
+chmod +x README_files/LeafTemplating.sh
 # run script
 cd README_files
-./LeafTemplating.sh.sh  # run script 
+./LeafTemplating.sh  # run script 
 ```
 
 
