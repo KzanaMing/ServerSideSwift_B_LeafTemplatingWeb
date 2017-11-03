@@ -25,7 +25,7 @@ Video 2 "Server Side Swift 3 with Vapor: Templating with Leaf" - [raywenderlich.
 Background <a id="Background">[▴](#toc)</a>
 ----------
 
-Project `B_LeafTemplatingWeb` was setup for Vapor 2 and Swift 4 development on macOS with the commands below. Leaf, LeafProvider are other Vapor package automatically build in a compatible Swift 3.
+Project `B_LeafTemplatingWeb` was setup for Vapor 2 and Swift 4 development on macOS with the commands below. Some sub-packages may use Swift 3.2, which is compatible of Swift 4.
 
 ``` sh
 vapor --version
@@ -34,8 +34,6 @@ vapor new B_LeafTemplatingWeb --template=web
 # change directory to B_LeafTemplatingWeb
 cd B_LeafTemplatingWeb
 mv Package.pins Package.pins.bak
-# rm -Rf .git
-# rm -Rf .gitignore
 
 #
 mkdir Sources/App/Routes 
