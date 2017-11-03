@@ -17,7 +17,7 @@ B: Leaf Templating
 
 _Prerequisite: [Vapor Development Environment Installation](../../Vapor__INSTALL.md)_
 
-_The `B_LeafTemplatingWeb` project provides an example Vapor 2 + Swift 4 implementation based on the corresponding raywenderlich.com tutorial.  The original tutorial still need to be viewed for concept discussion._
+_The `B_LeafTemplatingWeb` project provides an example Vapor 2 + Swift 4 implementation based on the raywenderlich.com "Server Side Swift 3 with Vapor: Templating with Leaf" tutorial.  The original tutorial still need to be viewed for concept discussion._
 
 [![](https://i.ytimg.com/vi/KZX5VN5uHB0/mqdefault.jpg "Templating With Leaf") ](https://www.youtube.com/watch?v=KZX5VN5uHB0)  
 Video 2 "Server Side Swift 3 with Vapor: Templating with Leaf" - [raywenderlich.com ⇗](https://videos.raywenderlich.com/screencasts/511-server-side-swift-with-vapor-templating-with-leaf) [YouTube ⇗](https://www.youtube.com/watch?v=KZX5VN5uHB0)
@@ -71,6 +71,17 @@ Set the Xcode scheme to `Run > My Mac`. After the scheme is set, Xcode can clean
 
 ![](README_files/XcodeSchemeSetting_LeafTemplating.png)
 
+The script [LeafTemplating.sh](README_files/LeafTemplating.sh) can run the examples from the commandline.
+
+``` sh
+# change permissions if needed to make script executable
+chmod +x README_files/LeafTemplating.sh.sh
+# run script
+cd README_files
+./LeafTemplating.sh.sh  # run script 
+```
+
+
 #### Example Notes: 
 
 Example Vapor 2 Leaf `*.leaf` templates have been added to the [`Resources/Views/`](Resources/Views) folder. The url template routes which use the various `*.leaf` files are edited into the [`Sources/App/Routes/Routes.swift`](Sources/App/Routes/Routes.swift) file.
@@ -96,7 +107,7 @@ _Basic HTML. No templating._
 
 Added: [`/Resources/Views/hello0.leaf`](Resources/Views/hello0.leaf)
 
-Modified: `/Sources/App/Routes/Routes.swift`
+Modified: [Routes.swift](Sources/App/Routes/Routes.swift)
 
 ``` swift
 builder.get("template0") { 
@@ -105,7 +116,7 @@ builder.get("template0") {
 }
 ``` 
 
-Demo Link: [http://localhost:8080/template0](http://localhost:8080/template0)  
+URL: `http://localhost:8080/template0`  
 
 <a id="Variable"></a>
 `#(variable)` [▴](#toc)
@@ -119,7 +130,7 @@ Added: [`/Resources/Views/hello1.leaf`](Resources/Views/hello1.leaf) plain HTML
 <h1>Hello, #(name)!</h1>
 ``` 
 
-Modified: `/Sources/App/Routes/Routes.swift`
+Modified File: [`Routes.swift`](Sources/App/Routes/Routes.swift)
 
 ``` swift
 builder.get("template1") { 
@@ -128,7 +139,7 @@ builder.get("template1") {
 }
 ``` 
 
-Demo Link: [http://localhost:8080/template1](http://localhost:8080/template1)  
+URL: `http://localhost:8080/template1`  
 
 
 String Parameter <a id="StringParameter">[▴](#toc)</a>
@@ -149,7 +160,7 @@ builder.get("template2", String.parameter) {
 }
 ``` 
 
-Demo Link: [http://localhost:8080/template2/Roger](http://localhost:8080/template2/Roger), [http://localhost:8080/template2/27](http://localhost:8080/template2/27) 
+URL: `http://localhost:8080/template2/Roger`, `http://localhost:8080/template2/27` 
 
 Loop Parameter <a id="LoopParameter">[▴](#toc)</a>
 --------------
@@ -163,7 +174,7 @@ Loop Parameter <a id="LoopParameter">[▴](#toc)</a>
 </body>
 ```
 
-Demo Link: [http://localhost:8080/template3a](http://localhost:8080/template3a)  
+URL: `http://localhost:8080/template3a`  
 
 ``` html
 <body>
@@ -174,7 +185,7 @@ Demo Link: [http://localhost:8080/template3a](http://localhost:8080/template3a)
 </body>
 ```
 
-Demo Link: [http://localhost:8080/template3b](http://localhost:8080/template3b)  
+URL: `http://localhost:8080/template3b`  
 
 `#embed`, `#extend`, `#export` <a id="EmbedExtendExport">[▴](#toc)</a>
 --------------
@@ -195,7 +206,7 @@ _title.leaf_
   …
 ```
 
-Demo Link: [http://localhost:8080/template4a](http://localhost:8080/template4a)
+URL: `http://localhost:8080/template4a`
 
 > Recommendation: have html tags open and close in the same leaf template.
 
@@ -231,7 +242,7 @@ _master.leaf_
 }
 ```
 
-Demo Link: [http://localhost:8080/template4b](http://localhost:8080/template4b)  
+URL: `http://localhost:8080/template4b`  
 
 `#if(){}##else{}` <a id="IfElse">[▴](#toc)</a>
 ----------------
@@ -244,9 +255,9 @@ Demo Link: [http://localhost:8080/template4b](http://localhost:8080/template4b)
 }
 ```
 
-Demo Link:  
-• [http://localhost:8080/template5a?sayHello=true](http://localhost:8080/template5a?sayHello=true)  
-• [http://localhost:8080/template5a?sayHello=false](http://localhost:8080/template5a?sayHello=false)  
+URL:  
+• `http://localhost:8080/template5a?sayHello=true`  
+• `http://localhost:8080/template5a?sayHello=false`  
 
 `#raw(){…}` <a id="Raw">[▴](#toc)</a>
 --------
@@ -257,12 +268,16 @@ _raw() avoids interpretation of `#`_
 #raw() { #youareawesome }
 ```
 
-Demo Link:  
-• [http://localhost:8080/template5b?sayHello=true](http://localhost:8080/template5b?sayHello=true)  
-• [http://localhost:8080/template5b?sayHello=false](http://localhost:8080/template5b?sayHello=false)  
+URL:  
+• `http://localhost:8080/template5b?sayHello=true`  
+• `http://localhost:8080/template5b?sayHello=false`  
 
 Resources <a id="Resources">[▴](#toc)</a>
 ---------
 
-[Server Side Swift 3 with Vapor Tutorial Series - raywenderlich.com ⇗](https://www.youtube.com/playlist?list=PL23Revp-82LIXIrfus8YdqxanjaiIOUaH) _Based on Vapor 1._
-
+* [Codingpedia: How to test a REST api from command line with curl ⇗](http://www.codingpedia.org/ama/how-to-test-a-rest-api-from-command-line-with-curl/)
+* [Lob REST API documentation: `curl` examples ⇗](https://lob.com/docs)
+* RESTed: [macOS App Store ⇗](https://itunes.apple.com/us/app/rested-simple-http-requests/id421879749), [home page ⇗](http://www.helloresolven.com/portfolio/rested/)
+* [Skeleton ⇗](http://getskeleton.com) CSS framework  
+* [SQLite Studio ⇗](https://sqlitestudio.pl) open source database manager
+* [YouTube/rwenderlich: Server Side Swift 3 with Vapor Tutorial Series ⇗](https://www.youtube.com/playlist?list=PL23Revp-82LIXIrfus8YdqxanjaiIOUaH) _Based on Vapor 1, Swift 3._
